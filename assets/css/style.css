@@ -84,6 +84,7 @@ video {
 body {
   font-family: "Montserrat", sans-serif;
   max-width: 1920px;
+  width: 100%;
   line-height: 1.6;
   background-color: #ffffff;
   color: #000000;
@@ -92,8 +93,8 @@ body {
   align-items: center;
   overflow-x: hidden;
   overflow-y: auto;
-  margin: 0;
-  height: 200vh;
+  margin: 0 auto;
+  height: auto;
 }
 
 body::-webkit-scrollbar {
@@ -307,6 +308,7 @@ header {
   background: white;
 }
 
+
 /* Боковое меню */
 .side-menu {
   height: 100%;
@@ -363,19 +365,17 @@ header {
   width: calc(100vw - 0px);
   height: calc(100vh - 100px);
   margin: 0 auto;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
+  /* max-width: 1920px; */
 }
 
-.swiper-slide {
-  max-width: 1920px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  object-fit: cover;
-  overflow: hidden;
+
+.swiper-container {
+  width: 100%;
+  height: 100%; /* Высота слайдера */
 }
+
 
 .baby-img {
   width: calc(100vw - 0px);
@@ -384,6 +384,8 @@ header {
   max-width: 1920px;
   max-height: 1080px;
 }
+/* 
+
 
 /* Стили для точек пагинации */
 .swiper-pagination {
@@ -430,7 +432,7 @@ header {
 
 /* Welcome */
 .welcome-section {
-  padding: 100px 0 200px 0px;
+  padding: 100px 0 100px 0px;
   position: relative;
   gap: 20px;
 }
@@ -439,14 +441,17 @@ header {
   padding: 0;
   margin: 0;
 }
+
+
 .img-container {
   position: absolute;
   left: 0;
   bottom: 0;
-  margin-left: 50px;
-  width: calc(20% - 20px);
-  height: calc(50vh - 50px);
+  margin-left: 40px;
+  width: calc(15% - 15px); 
+  height: calc(45vh - 40px); 
 }
+
 
 .img-container img {
   width: calc(100% - 40px);
@@ -484,6 +489,41 @@ header {
 
 .arrow-link:hover {
   color: #ce5d49;
+}
+
+@media (max-width: 1440px) {
+  .img-container {
+    bottom: calc(0px - 8vh);
+    width: calc(18% - 20px);
+    height: calc(40vh - 35px);
+  }
+}
+
+@media (max-width: 1300px) {
+  .img-container {
+    bottom: calc(0px - 15vh);
+    width: calc(20% - 10px);
+    height: calc(35vh - 30px);
+    z-index: 100000;
+  }
+}
+
+@media (max-width: 768px) {
+  .img-container {
+    bottom: calc(0px - 15vh);
+    width: calc(25% - 10px);
+    height: calc(30vh - 20px);
+  }
+}
+
+@media (max-width: 500px) {
+  .img-container {
+   display: none;
+  }
+
+  .welcome-section{
+    padding-bottom: 10px;
+  }
 }
 
 /* Welcome end */
@@ -632,6 +672,7 @@ body.modal-open {
   overflow: hidden;
   border-radius: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 10px;
 }
 
 .service-card:hover {
@@ -719,7 +760,7 @@ body.modal-open {
 /* packages */
 
 .packages-section {
-  padding: 150px 0 100px 0;
+  padding: 100px 0;
 }
 
 .package-card {
@@ -766,6 +807,57 @@ ul.list-unstyled li {
 .package-card .btn {
   width: 100%;
   color: white;
+}
+
+@media (max-width: 1100px) {
+ 
+  .package-card {
+    padding: 15px;
+  }
+
+  .package-card .card-title {
+    font-size: 18px;
+  }
+
+  .package-card .price {
+    font-size: 20px;
+  }
+
+  .package-card .card-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .packages-section {
+    padding: 60px 0;
+  }
+
+  .package-card {
+    padding: 10px;
+  }
+
+  .package-card .card-title {
+    font-size: 16px;
+  }
+
+  .package-card .price {
+    font-size: 24px;
+  }
+
+  .package-card .card-text {
+    font-size: 12px;
+  }
+
+  .package-card .btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+  @media (max-width: 373px){
+    .package-card .price{
+       font-size: 19px;
+  }
 }
 
 /* achievements  */
@@ -1000,6 +1092,12 @@ footer {
     height: auto;
     z-index: 1000;
   }
+
+  .card-title-services{
+    font-size: 25px;
+    font-weight: 500;
+  }
+
 }
 
 @media (max-width: 1200px) {
@@ -1029,6 +1127,10 @@ footer {
     height: auto;
     z-index: 1000;
   }
+
+  .card-img-overlay-services{
+    height: 20%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1053,12 +1155,30 @@ footer {
     height: auto;
     z-index: 0;
   }
+
+  .title {
+    font-size: 29px;
+  }
+
+  .text-desc{
+    font-size: 16px;
+  }
+
 }
 
 @media (max-width: 485px) {
   .padding-big {
     padding-bottom: 900px;
   }
+
+  .title {
+    font-size: 25px;
+  }
+
+  .text-desc{
+    font-size: 14px;
+  }
+
 }
 
 @media (max-width: 400px) {
@@ -1068,10 +1188,6 @@ footer {
 
   .img-container img {
     display: none;
-  }
-
-  .title {
-    font-size: 48px;
   }
 
   .btn-plan {
@@ -1092,6 +1208,7 @@ footer {
   width: calc(100vw - 0px);
   margin: 0 auto;
   padding: 100px 0 150px 0;
+  max-width: 1920px;
 }
 
 .hero-about {
@@ -1116,6 +1233,7 @@ footer {
   .hero-about {
     text-align: center;
   }
+  
 
   .about-section .col-lg-6,
   .mission-section .col-lg-6 {
@@ -1155,6 +1273,8 @@ footer {
   overflow: hidden;
   transition: transform 0.3s;
   gap: 10px;
+  height: 30vh;
+  padding: 10px;
 }
 
 .card:hover {
@@ -1191,6 +1311,19 @@ footer {
   top: 50%;
 }
 
+
+@media (max-width: 1200px) {
+  .card {
+    height: 260px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .card {
+    height: 280px;
+  }
+}
+
 @media (max-width: 800px) {
   .blog-buy {
     padding: 200px 0 150px 0;
@@ -1198,6 +1331,10 @@ footer {
     overflow-x: hidden;
   }
 
+  .card {
+    height: 40vh;
+  }
+  
   .ready-section {
     padding-bottom: 0;
   }
@@ -1215,6 +1352,11 @@ footer {
   .form-container {
     padding: 50px 20px 50px 20px;
   }
+
+  .card {
+    height: auto;
+  }
+
 }
 
 @media (max-width: 730px) {
@@ -1290,6 +1432,9 @@ footer {
 
 /* contact start */
 
+.contact-section{
+  padding-bottom: 50px;
+}
 .section-contact-iframe {
   margin-bottom: 100px;
 }
